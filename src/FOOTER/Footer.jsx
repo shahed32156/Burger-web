@@ -34,7 +34,7 @@ const Footer = () => {
 
 
                 <div className='relative z-10 text-center mt-10 bg-orange-500 py-3'>
-                    <p className='text-[#291b1b] text-[14px] sm:text-[16px]'>@ All Rights Reserved by Abdullah Shahed</p>
+                    <p className='text-[#291b1b] text-[14px] sm:text-[16px]'>&copy; All Rights Reserved by Abdullah Shahed</p>
                 </div>
 
 
