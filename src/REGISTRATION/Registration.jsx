@@ -10,11 +10,40 @@ const Registration = ({show, setShow}) => {
     const [name, setName] = useState(""); 
     const [email, setEmail] = useState("");
     const [pass, setPass] = useState("");
+    const [nameError, setNameError] = useState('');
+    const [passError, setPassError] = useState('');
+
+
+    const validateName = (value) => {
+        // Check if the input contains only letters and spaces
+        const regex = /^[a-zA-Z\s]*$/;
+        if (!regex.test(value)) {
+          setNameError('Invalid name: only letters and spaces are allowed');
+        } else if (value.length < 4) {
+          setNameError('Name must be more than 3 characters');
+        } else {
+          setNameError('');
+        }
+      };
+
+      const validatePassword = (value) => {
+        const passPattern =
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6}$/;
+        if (!passPattern.test(value)) {
+          setPassError(
+            'Password must be at least 6 characters long.'
+          );
+        } else {
+          setPassError('');
+        }
+      };
+
 
     const handleName = (e) => {
 
-        setName(e.target.value)
-        console.log(value);
+       const value = e.target.value;
+        setName(value);
+        validateName(value);
       
   } 
 
@@ -25,10 +54,10 @@ const Registration = ({show, setShow}) => {
    }
 
    const handlePass = (e) => {
-
-    setPass(e.target.value);
-
-}
+    const value = e.target.value;
+    setPass(value);
+    validatePassword(value);
+  };
 
 const handleSubmit = (e) => {
     e.preventDefault();
@@ -89,22 +118,25 @@ const handleSubmit = (e) => {
                            <form onSubmit={handleSubmit} className='flex flex-col gap-6 mt-10' action="">
 
 
-                           <div className='flex justify-center relative'>
+                           <div className='flex  justify-center relative'>
 
                                     
                                     <input className='w-full mx-5 bg-transparent sm:w-[320px] pl-7 pb-1 text-[18px] border-b-2 border-white focus:outline-none' 
                                     placeholder='Full name' required
-                                    type="email" name="" id="" onChange={handleName} value={name} />
+                                    type="text" name="name" id="" onChange={handleName} value={name} />
                                     <i class="fa-regular fa-user text-xl absolute bottom-1 left-5 sm:left-10"></i>
-
+                                    
                            </div>
+                           
+                             {nameError && <p className='text-red-500 -mt-3 text-sm text-center flex relative pl-5 sm:pl-10'>{nameError}</p>}                  
+                           
 
                                 <div className='flex justify-center relative'>
 
                                     
                                     <input className='w-full mx-5 bg-transparent sm:w-[320px] pl-7 pb-1 text-[18px] border-b-2 border-white focus:outline-none' 
                                     placeholder='Email' required
-                                    type="email" name="" id="" onChange={handleEmail} value={email} />
+                                    type="email" name="email" id="" onChange={handleEmail} value={email} />
                                     <i class="fa-regular fa-envelope text-xl absolute bottom-1 left-5 sm:left-10"></i>
 
                                 </div>
@@ -113,10 +145,12 @@ const handleSubmit = (e) => {
 
                                      <input className='w-full mx-5 bg-transparent sm:w-[320px] pl-7 pb-1 text-[18px] border-b-2 border-white focus:outline-none' 
                                      placeholder='Password' required
-                                     type="password" name="" id="" onChange={handlePass} value={pass} />
+                                     type="password" name="password" id="" onChange={handlePass} value={pass} />
                                      <i class="fa-solid fa-lock text-xl absolute bottom-1 left-5 sm:left-10"></i>
 
                                 </div>
+
+                                {passError && <p className='text-red-500 text-sm text-center flex relative pl-5 sm:pl-10 -mt-3'>{passError}</p>}                  
 
                                 <div className='flex justify-center relative'>
 
