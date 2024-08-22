@@ -1,29 +1,20 @@
-import React, { useState } from 'react';
-import { useInView } from 'react-intersection-observer';
+import React from 'react';
 
 const Recipe = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.3,
-  });
-
   return (
     <>
       <div className="mt-20 text-center">
-        <h1 className={`text-3xl font-extrabold font-[Matemasie] transition-opacity duration-1000 ${inView ? 'opacity-100' : 'opacity-0'}`}>
+        <h1 className="text-3xl font-extrabold font-[Matemasie]">
           Our Secret Recipe
         </h1>
       </div>
 
-      <div 
-        ref={ref} 
-        className="mt-10 flex flex-col md:flex-row justify-between items-center gap-6 mx-3 md:mx-20 lg:mx-36 xl:mx-56 2xl:mx-72"
-      >
-        <div className={`transition-transform duration-1000 ${inView ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'}`}>
-          <img className='' src="./Images/r_b.png" alt="Burger" />
+      <div className="mt-10 flex flex-col md:flex-row justify-between items-center gap-6 mx-3 md:mx-20 lg:mx-36 xl:mx-56 2xl:mx-72">
+        <div>
+          <img src="./Images/r_b.png" alt="Burger" />
         </div>
 
-        <div className={`transition-transform duration-1000 delay-200 ${inView ? 'translate-x-0 opacity-100' : 'translate-x-20 opacity-0'}`}>
+        <div>
           {/* Sub part start */}
           <div className="relative flex flex-col gap-8 md:gap-10 z-10">
             <div className="flex items-center gap-4">
