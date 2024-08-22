@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import RevealOnScroll from './HOOK/RevealOnScroll';
-import RingLoader from "react-spinners/RingLoader";
+import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
 import Navbar from './NAVBAR/Navbar';
 import Carousel from './CAROUSEL/Carousel';
 import Recipe from './RECIPE/Recipe';
@@ -51,10 +51,10 @@ function App() {
     <>
       {isLoading ? (
         <div className='flex justify-center items-center h-[100vh]'>
-          <RingLoader color="#f34ee5" />
+          <ClimbingBoxLoader color="#f68726" />
         </div>
       ) : (
-        <div className=''>
+        <div className='bg-[#fadea9]'>
           
           <BrowserRouter>
           
