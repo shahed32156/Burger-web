@@ -50,7 +50,7 @@ const Order = () => {
                             <div className='flex flex-col gap-3'>
                                 <h1 className='text-3xl font-bold'>Beef Burger</h1>
                                 <p className='text-2xl font-semibold'>250 BDT</p>
-                                <div className='flex items-center gap-1'>
+                                <div className='flex items-center gap-1 text-[yellow]'>
                                 <i className="fa-solid fa-star text-[14px]"></i> 
                                 <i className="fa-solid fa-star text-[14px]"></i> 
                                 <i className="fa-solid fa-star text-[14px]"></i> 
